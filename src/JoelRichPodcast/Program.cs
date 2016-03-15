@@ -15,13 +15,13 @@ namespace JoelRichPodcast
             var parsers = new ILinkParser[] { new MP3LinkParser(), new YUTorahLinkParser(new DefaultLinkAccessor()) };
             var mySettings = new SimpleConfigurationReader().GetSimple<ILocalMachineConfigSection>();
 
-            new PodcastGeneratorGenerator()
-                .GetPodcastGenerator(
-                        new UrlFeedGetter("http://www.torahmusings.com/category/audio/feed", "Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36"),
+            var pgg = new PodcastGeneratorGenerator();
+            var pg = pgg.GetPodcastGenerator(
+                        new UrlFeedGetter($"http://www.torahmusings.com/category/audio/feed", "Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36"),
                         new JoelRichFeedParser(),
                         new JoelRichFeedGenerator(parsers)
-                    )
-                .Generate(
+                    );
+            pg.Generate(
                         new XmlTextWriter(mySettings.OutputLocation, null) {Formatting = Formatting.Indented}
                     );
         }        

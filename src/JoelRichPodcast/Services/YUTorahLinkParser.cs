@@ -26,9 +26,11 @@ namespace JoelRichPodcast
             CQ doc;
 			if (!_accessor.TryGetLinkFile(link.LinkURL, out doc))
                 return null;
-			
-            doc = doc[".audio-area"];
-		    string downloadurl = doc["a[onmouseup=\"urchin_logDownload(this.href);\"]"].Attr("href");
+
+            doc = doc[".download a[title=\"Download this shiur\"]"];
+		    string downloadurl = doc.Attr("href");
+            if (downloadurl == null)
+                return null;
 		
             return new Episode()
             {
