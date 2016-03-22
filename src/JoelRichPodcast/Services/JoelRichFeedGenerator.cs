@@ -7,7 +7,7 @@ namespace JoelRichPodcast
 {
     internal class JoelRichFeedGenerator : IFeedGenerator
     {
-        private ICollection<ILinkParser> _parsers;
+        private readonly ICollection<ILinkParser> _parsers;
 
         public JoelRichFeedGenerator(params ILinkParser[] parsers) : this((ICollection<ILinkParser>)parsers)
         {
@@ -20,7 +20,7 @@ namespace JoelRichPodcast
 
         public RssGenerator GetPodcastGenerator(ParsedRSSFeedItem items)
         {
-            RssGenerator rssGenerator = new RssGenerator()
+            RssGenerator rssGenerator = new RssGenerator
             {
 
                 Title = "Joel Rich Audio Roundup Podcast",

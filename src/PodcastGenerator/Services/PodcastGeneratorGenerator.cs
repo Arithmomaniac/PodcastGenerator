@@ -10,7 +10,7 @@ namespace PodcastGenerator
 {
     public class PodcastGeneratorGenerator
     {
-        public RssGenerator GetPodcastGenerator(IFeedGetter feedGetter, IFeedParser feedParser, IFeedGenerator feedGenerator)
+        public static RssGenerator GetPodcastGenerator(IFeedGetter feedGetter, IFeedParser feedParser, IFeedGenerator feedGenerator)
         {
             XElement feed = feedGetter.GetFeed();
             ParsedRSSFeedItem feedInfo = feedParser.Parse(feed);

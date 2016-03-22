@@ -49,6 +49,7 @@
   <ItemGroup>
     <None Include="App.default.config" />
     <None Include="App.config" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Services\JoelRichFeedGenerator.cs">
       <AutoGen>false</AutoGen>
       <DesignTimeSharedInput>false</DesignTimeSharedInput>

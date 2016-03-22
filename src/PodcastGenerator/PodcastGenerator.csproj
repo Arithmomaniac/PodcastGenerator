@@ -51,6 +51,7 @@
     <Compile Include="Abstract\IFeedParser.cs" />
     <Compile Include="Abstract\ILinkAccessor.cs" />
     <Compile Include="Abstract\ILinkParser.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Services\DefaultLinkAccessor.cs" />
     <Compile Include="Models\ParsedRSSFeedItem.cs" />
     <Compile Include="Models\ParsedRSSFeedLink.cs" />

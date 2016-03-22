@@ -8,9 +8,9 @@ namespace PodcastGenerator
 {
     public class UrlFeedGetter : IFeedGetter
     {
-        private string _url;
+        private readonly string _url;
 
-        private string _useragent;
+        private readonly string _useragent;
 
         public UrlFeedGetter(string url, string useragent)
         {

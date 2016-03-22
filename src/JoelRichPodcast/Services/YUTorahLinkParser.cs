@@ -7,7 +7,7 @@ namespace JoelRichPodcast
 {
 	internal class YUTorahLinkParser : ILinkParser
 	{
-		private ILinkAccessor _accessor;
+        private readonly ILinkAccessor _accessor;
 
 		public YUTorahLinkParser(ILinkAccessor accessor)
 		{
@@ -32,7 +32,7 @@ namespace JoelRichPodcast
             if (downloadurl == null)
                 return null;
 		
-            return new Episode()
+            return new Episode
             {
                 FileUrl = downloadurl,
                 Permalink = link.LinkURL,

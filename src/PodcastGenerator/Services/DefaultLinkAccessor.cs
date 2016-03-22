@@ -1,5 +1,4 @@
 using CsQuery;
-using System;
 
 namespace PodcastGenerator
 {
@@ -7,7 +6,7 @@ namespace PodcastGenerator
     {
         public bool TryGetLinkFile(string linkURL, out CQ doc)
         {
-            try { 
+            try {
                 doc = CQ.CreateFromUrl(linkURL, null);
                 return true;
             }
