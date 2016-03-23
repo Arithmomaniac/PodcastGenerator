@@ -15,7 +15,7 @@ namespace JoelRichPodcast
 
 		public ParsedRSSFeedItem Parse(XElement feed)
 		{
-			XElement item = feed.Descendants("item").First();
+			XElement item = feed.Descendants("item").First(x => !x.Element("title").Value.Contains("Special"));
 			DateTime dateUpdated = DateTime.Parse(item.Element("pubDate").Value);
 			string content = item.Element(XName.Get("encoded", "http://purl.org/rss/1.0/modules/content/")).Value;
 			ParsedRSSFeedItem parsedRSSFeedItem = new ParsedRSSFeedItem

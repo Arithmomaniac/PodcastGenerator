@@ -2,6 +2,7 @@ using PodcastRssGenerator4DotNet;
 using System;
 using System.Collections.Generic;
 using PodcastGenerator;
+using System.Linq;
 
 namespace JoelRichPodcast
 {
@@ -15,6 +16,8 @@ namespace JoelRichPodcast
 
         public JoelRichFeedGenerator(ICollection<ILinkParser> parsers)
         {
+            if (parsers?.Any() != true)
+                throw new ArgumentException("parsers are required", nameof(parsers));
             this._parsers = parsers;
         }
 

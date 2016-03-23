@@ -10,11 +10,21 @@ namespace PodcastGenerator
 {
     public class PodcastGeneratorGenerator
     {
-        public static RssGenerator GetPodcastGenerator(IFeedGetter feedGetter, IFeedParser feedParser, IFeedGenerator feedGenerator)
+        IFeedGenerator _feedGenerator;
+        IFeedGetter _feedGetter;
+        IFeedParser _feedParser;
+        public PodcastGeneratorGenerator(IFeedGetter feedGetter, IFeedParser feedParser, IFeedGenerator feedGenerator)
         {
-            XElement feed = feedGetter.GetFeed();
-            ParsedRSSFeedItem feedInfo = feedParser.Parse(feed);
-            return feedGenerator.GetPodcastGenerator(feedInfo);
+            _feedGetter = feedGetter;
+            _feedGenerator = feedGenerator;
+            _feedParser = feedParser;
+        }
+
+        public RssGenerator GetPodcastGenerator()
+        {
+            XElement feed = _feedGetter.GetFeed();
+            ParsedRSSFeedItem feedInfo = _feedParser.Parse(feed);
+            return _feedGenerator.GetPodcastGenerator(feedInfo);
         }
     }
 }
