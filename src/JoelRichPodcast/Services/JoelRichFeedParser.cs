@@ -17,9 +17,11 @@ namespace JoelRichPodcast
 		{
 			XElement item = feed.Descendants("item").First(x => !x.Element("title").Value.Contains("Special"));
 			DateTime dateUpdated = DateTime.Parse(item.Element("pubDate").Value);
-			string content = item.Element(XName.Get("encoded", "http://purl.org/rss/1.0/modules/content/")).Value;
-			ParsedRSSFeedItem parsedRSSFeedItem = new ParsedRSSFeedItem
-			{
+            string link = item.Element("link").Value;
+            string content = item.Element(XName.Get("encoded", "http://purl.org/rss/1.0/modules/content/")).Value;
+            ParsedRSSFeedItem parsedRSSFeedItem = new ParsedRSSFeedItem
+            {
+                ItemLink = link,
 				DateUpdated = dateUpdated,
 				Links = CQ.CreateFragment(content).Select("li").Has("a").Select(ParseLink).Where( x => x != null).ToList()
 			};

@@ -39,12 +39,13 @@ namespace JoelRichPodcast
 
             foreach (ParsedRSSFeedLink item in items.Links)
             {
-                foreach (ILinkParser parser in this._parsers)
+                foreach (ILinkParser parser in _parsers)
                 {
                     Episode episode = parser.ParseLink(item);
                     if (episode != null)
                     {
                         rssGenerator.Episodes.Add(episode);
+                        break;
                     }
                 }
             }

@@ -30,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Common.Logging.Core, Version=3.3.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Common.Logging.Core.3.3.1\lib\net40\Common.Logging.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="CsQuery">
       <HintPath>..\packages\CsQuery.1.3.4\lib\net40\CsQuery.dll</HintPath>
     </Reference>
@@ -51,12 +55,14 @@
     <Compile Include="Abstract\IFeedParser.cs" />
     <Compile Include="Abstract\ILinkAccessor.cs" />
     <Compile Include="Abstract\ILinkParser.cs" />
+    <Compile Include="Decorators\LoggedFeedParser.cs" />
+    <Compile Include="Decorators\LoggedLinkedParser.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Services\DefaultLinkAccessor.cs" />
     <Compile Include="Models\ParsedRSSFeedItem.cs" />
     <Compile Include="Models\ParsedRSSFeedLink.cs" />
     <Compile Include="Services\MP3LinkParser.cs" />
-    <Compile Include="Services\PodcastGeneratorGenerator.cs" />
+    <Compile Include="Services\PodcastGeneratorFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\UrlFeedGetter.cs" />
   </ItemGroup>

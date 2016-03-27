@@ -8,12 +8,12 @@ using System.Xml.Linq;
 
 namespace PodcastGenerator
 {
-    public class PodcastGeneratorGenerator
+    public class PodcastGeneratorFactory
     {
         IFeedGenerator _feedGenerator;
         IFeedGetter _feedGetter;
         IFeedParser _feedParser;
-        public PodcastGeneratorGenerator(IFeedGetter feedGetter, IFeedParser feedParser, IFeedGenerator feedGenerator)
+        public PodcastGeneratorFactory(IFeedGetter feedGetter, IFeedParser feedParser, IFeedGenerator feedGenerator)
         {
             _feedGetter = feedGetter;
             _feedGenerator = feedGenerator;
