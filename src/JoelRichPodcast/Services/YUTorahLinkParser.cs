@@ -20,7 +20,7 @@ namespace JoelRichPodcast
 
 		public Episode ParseLink(ParsedRSSFeedLink link)
 		{
-			if (!link.LinkURL.StartsWith("http://www.yutorah.org/lectures/lecture.cfm/"))
+            if (!(link.LinkURL.StartsWith("http://www.yutorah.org/lectures/lecture.cfm/") || link.LinkURL.StartsWith("http://www.yutorah.org/sidebar/lecture.cfm/")))
                 return null;
 
             CQ doc;
